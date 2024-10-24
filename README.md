@@ -1,20 +1,66 @@
+## Foundry
 
-# Superposition Faucet (public edition)
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-This faucet is a MIT licensed (as is the original) single repo version of the faucet that
-we've been running out of a private repo and
-https://github.com/fluidity-money/long.so/tree/development/cmd/faucet.superposition for
-some time.
+Foundry consists of:
 
-It is a three part repo, a graph that spools requests to the database, a runner that should be run at a desired frequency (and combined with a webhook alert - example in the repo), and a static webapp.
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-It can optionally be configured to use a Turnstile token using a feature flag. Features
-for the Go code is contained in lib/features/list.go .
+## Documentation
 
-## Building
+https://book.getfoundry.sh/
 
-	make build
+## Usage
 
-## Running
+### Build
 
+```shell
+$ forge build
+```
 
+### Test
+
+```shell
+$ forge test
+```
+
+### Format
+
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```
