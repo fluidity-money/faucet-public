@@ -40,16 +40,19 @@ contract Faucet is IFaucet {
     receive() external payable {}
 
     /// @inheritdoc IFaucet
-    function sendTo(FaucetReq[] calldata _requests) external {
+    function sendTo(address[] calldata _requests) external {
         require(msg.sender == operator_, "only operator");
         for (uint i = 0; i < _requests.length; ++i) {
-            address recipient = _requests[i].recipient;
+            address recipient = _requests[i];
             for (uint x = 0; x < tokens.length; ++x) {
                 uint256 amount = amounts[x];
                 tokens[x].transfer(recipient, amount);
             }
             if (gasTokenAmount > 0) {
                 uint256 gas = gasTokenAmount;
+                // Ignore any issues sending the gas token. This could be useful if
+                // you send to a smart account that someone uses.
+                // If this bothers you, you should see a message about it during compilation.
                 bool _rc = payable(recipient).send(gas);
             }
         }

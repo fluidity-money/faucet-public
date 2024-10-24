@@ -1,12 +1,12 @@
 [profile.default]
-src = "sol"
+src = "pkg"
 out = "out"
 libs = ["lib"]
 via_ir = true
 
 [doc]
 out = "docs-out"
-title = "Longtail AMM contracts docs"
-repository = "https://github.com/fluidity-money/long.so"
+title = "Faucet Public Docs"
+repository = "https://github.com/fluidity-money/faucet-public"
 
 revert-strings = "debug"
